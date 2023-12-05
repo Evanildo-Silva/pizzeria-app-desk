@@ -18,10 +18,25 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #1d1d2e
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font: 400 1rem sans-serif
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 93.7%;
+  }
 }
