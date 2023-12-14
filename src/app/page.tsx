@@ -9,7 +9,6 @@ export default function Home() {
       <Image src={logoImg} alt={"Logo project pizzaria"} />
       <div className="w-[37.5rem] sm:w-[90%] mt-8 flex flex-col items-center justify-center py-8 px-6">
         <LoginForm />
-        {/* TODO criar tela de signup */}
         <Link className="mt-4 hover:cursor-pointer" href={"/signup"}>
           Não possui conta? cadastre-se
         </Link>
