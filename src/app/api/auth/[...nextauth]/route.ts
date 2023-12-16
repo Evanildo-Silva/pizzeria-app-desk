@@ -11,16 +11,19 @@ const nextAuthOptions: NextAuthOptions = {
       },
 
       async authorize(credentials, req) {
-        const response = await fetch("http://localhost:3333/sessions", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({
-            email: credentials?.email,
-            password: credentials?.password,
-          }),
-        });
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/sessions`,
+          {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify({
+              email: credentials?.email,
+              password: credentials?.password,
+            }),
+          }
+        );
 
         const user = await response.json();
 
