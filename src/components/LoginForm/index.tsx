@@ -1,11 +1,14 @@
 "use client";
 
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
 
 export default function LoginForm() {
   const loginFormRef = useRef<HTMLFormElement>(null);
+  const router = useRouter();
 
   async function handleOnSubmit(formData: FormData) {
     const email = formData.get("email");
@@ -17,13 +20,19 @@ export default function LoginForm() {
       return;
     }
 
-    // TODO lógica para realizar o login do usuário.
-    console.log(
-      "🚀 ~ file: index.tsx:12 ~ handleOnSubmit ~ email ~ password:",
+    const result = await signIn("credentials", {
       email,
-      " - ",
-      password
-    );
+      password,
+      redirect: false,
+    });
+
+    if (result?.error) {
+      console.log(result);
+      return;
+    }
+
+    // TODO criar tela dashboard
+    router.replace("/dashboard");
   }
 
   return (
