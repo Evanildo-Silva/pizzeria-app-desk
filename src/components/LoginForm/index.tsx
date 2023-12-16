@@ -16,7 +16,6 @@ export default function LoginForm() {
 
     if (!email || !password) {
       // TODO adicionar toast para informar erro de preenchimento do formulário.
-      console.log("🚀 ~ Todos os campos são obrigatórios");
       return;
     }
 
@@ -27,10 +26,11 @@ export default function LoginForm() {
     });
 
     if (result?.error) {
-      console.log(result);
+      // TODO adicionar toast para informar erro no login do usuário.
       return;
     }
 
+    // TODO adicionar toast para informar sucesso no login do usuário.
     // TODO criar tela dashboard
     router.replace("/dashboard");
   }
