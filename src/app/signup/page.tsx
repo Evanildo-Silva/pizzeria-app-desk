@@ -1,7 +1,7 @@
+import SignupForm from "@/components/SignupForm";
 import Image from "next/image";
 import Link from "next/link";
 import logoImg from "../../../public/logo-pizzaria.png";
-import SignupForm from "../components/SignupForm";
 
 export default function Signup() {
   return (

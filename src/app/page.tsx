@@ -1,7 +1,7 @@
+import LoginForm from "@/components/LoginForm";
 import Image from "next/image";
 import Link from "next/link";
 import logoImg from "../../public/logo-pizzaria.png";
-import LoginForm from "./components/LoginForm";
 
 export default function Home() {
   return (
