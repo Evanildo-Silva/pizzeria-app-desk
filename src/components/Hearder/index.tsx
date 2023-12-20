@@ -4,7 +4,7 @@ import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { FiLogOut } from "react-icons/fi";
-import logoImg from "../../../../public/logo-pizzaria.png";
+import logoImg from "../../../public/logo-pizzaria.png";
 
 export default function Header() {
   return (
