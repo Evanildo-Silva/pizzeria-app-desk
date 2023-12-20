@@ -31,7 +31,6 @@ export default function LoginForm() {
     }
 
     // TODO adicionar toast para informar sucesso no login do usuário.
-    // TODO criar tela dashboard
     router.replace("/dashboard");
   }
 
