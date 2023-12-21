@@ -11,7 +11,6 @@ export default function SignupForm() {
   const router = useRouter();
 
   async function handleOnSubmit(formData: FormData) {
-    debugger;
     const name = formData.get("name");
     const email = formData.get("email");
     const password = formData.get("password");
