@@ -23,7 +23,7 @@ export default function Header() {
 
           <button
             className="hover:text-btn-secondary hover:scale-125"
-            onClick={() => signOut}
+            onClick={() => signOut()}
           >
             <FiLogOut size={22} />
           </button>
