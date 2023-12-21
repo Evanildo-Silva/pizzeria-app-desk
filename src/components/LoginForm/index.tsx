@@ -19,19 +19,24 @@ export default function LoginForm() {
       return;
     }
 
-    const result = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
+    try {
+      const result = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
 
-    if (result?.error) {
+      if (result?.error) {
+        // TODO adicionar toast para informar erro no login do usuário.
+        return;
+      }
+
+      // TODO adicionar toast para informar sucesso no login do usuário.
+      loginFormRef.current?.reset();
+      router.replace("/dashboard");
+    } catch (error) {
       // TODO adicionar toast para informar erro no login do usuário.
-      return;
     }
-
-    // TODO adicionar toast para informar sucesso no login do usuário.
-    router.replace("/dashboard");
   }
 
   return (
