@@ -1,11 +1,11 @@
 import { FiX } from "react-icons/fi";
 import Modal from "react-modal";
-import { OrderItemProps } from "../DashboardDisplay";
+import { OrderProps } from "../DashboardDisplay";
 
 type ModalOrderDetailsProps = {
   isOpen: boolean;
   onRequestClose: () => void;
-  orderItems: OrderItemProps[];
+  orderItems?: OrderProps;
   handleFinishOrder: (id: string) => void;
 };
 
@@ -42,29 +42,29 @@ export default function ModalOrderDetails({
       <div className="w-[38.75rem] sm:w-[20rem]">
         <span className="flex flex-row gap-4">
           <p className="text-2xl">
-            Mesa: <strong>{orderItems[0]?.order.table}</strong>
+            Mesa: <strong>{orderItems?.table}</strong>
           </p>
-          {!!orderItems[0]?.order.name && (
+          {orderItems?.name && (
             <p>
-              Clente: <strong>{orderItems[0]?.order.name}</strong>
+              Clente: <strong>{orderItems?.name}</strong>
             </p>
           )}
         </span>
-        {orderItems.map((item) => (
+        {orderItems?.items.map((item) => (
           <section
             key={item.id}
             className="flex flex-col p-4 mt-4 rounded-md bg-foreground"
           >
             <span className="flex items-center text-2xl gap-2">
               {item.amount} -{" "}
-              <strong className="text-btn-primary">{item.products.name}</strong>
+              <strong className="text-btn-primary">{item.product.name}</strong>
             </span>
-            <p className="break-all mt-2">{item.products.description}</p>
+            <p className="break-all mt-2">{item.product.description}</p>
           </section>
         ))}
         <button
           className="mt-6 bg-foreground text-btn-secondary py-2 px-4 rounded-md"
-          onClick={() => handleFinishOrder(orderItems[0].order_id)}
+          onClick={() => handleFinishOrder(orderItems!.id)}
         >
           Concluir pedido
         </button>
